@@ -1,0 +1,5 @@
+:global(Button[actived="actived"]){
+  color: #40A9FE;
+  background-color: #fff;
+  border-color: #40a9ff;
+}

@@ -1,0 +1,10 @@
+.ysynet_slider {
+  position: absolute;
+  background: #fff;
+  z-index: 99999;
+  height: 100vh;
+  width: 0px;
+  top: 85px;
+  right: 0;
+  transition: width .5s;
+}

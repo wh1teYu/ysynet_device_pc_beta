@@ -1,0 +1,30 @@
+.ant-tabs-nav-container:after {
+    display: none;
+}
+.ant-tabs-nav:after {
+    display: none;
+}
+.ant-tabs-ink-bar {
+    background-color: #40a9ff;
+    height: 1px;
+}
+.ant-tabs-nav .ant-tabs-tab {
+    border: 1px solid lightgray;
+    border-radius: 5%;
+    margin: 0;
+    line-height: 14px;
+}
+.ant-tabs-nav .ant-tabs-tab-active {
+    color: #40a9ff;
+    border: 1px solid #40a9ff;
+}
+.ant-tabs-nav .ant-tabs-tab:hover {
+    color: #40a9ff;
+    border: 1px solid #40a9ff;
+}
+.ant-tabs-ink-bar {
+    display: none;
+}
+.ant-upload-list-picture-card .ant-upload-list-item-actions .anticon-delete{
+    display: none;
+}

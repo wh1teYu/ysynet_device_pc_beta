@@ -1,0 +1,34 @@
+.ysynet-flex-input-wrapper {
+  display: inline-block;
+}
+.ysynet-flex-input-wrapper .ysynet-flex-input {
+  width: 0px;
+  color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+  line-height: 1.5;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  outline: none;
+  transition: width 0.3s;
+}
+
+.ysynet-flex-input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.ysynet-flex-input .ant-select-selection--single {
+  width: 200px;
+  color: rgba(0, 0, 0, 0.5);
+  background: transparent;
+  line-height: 1.5;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  transition: width 0.3s;
+}
+
+.ysynet-flex-input  .ant-select-search__field {
+  outline: none;
+}

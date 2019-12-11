@@ -1,0 +1,110 @@
+.matter-card {
+    border-radius: 3%;
+    height: 102px;
+    border: 1px solid #e8e8e8;
+}
+
+.matter-card-img {
+    height: 100px;
+    float: left;
+    border-radius: 6px 0 0 6px;
+}
+
+.matter-card-img img {
+    margin: 14px 0 14px 14px;
+}
+
+.matter-card-text {
+    padding-right: 10px;
+    height: 100px;
+    float: right;
+}
+
+.matter-card-text h1 {
+    margin: 0;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 24px;
+}
+
+.matter-card-text  div {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .65);
+}
+
+.bill-text {
+    font-size: 16px;
+    color: rgba(0, 0, 0, .85);
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.scrapNumber {       /*报废*/
+    border-color: rgb(36, 147, 252);
+}
+
+.scrapNumber-text {       /*报废*/
+    color: rgb(36, 147, 252);
+}
+
+.awaitCheck {        /*维修验收*/
+    border-color: rgb(149, 99, 234);
+}
+
+.awaitCheck-text {        /*维修验收*/
+    color: rgb(149, 99, 234);
+}
+
+.maintainNumber {        /*保养到期*/
+    border-color: rgb(36, 143, 252);
+}
+
+.maintainNumber-text {        /*保养到期*/
+    color: rgb(36, 143, 252);
+}
+
+.maintenance {         /*维修处理*/
+    border-color: rgb(39, 184, 190);
+}
+
+.maintenance-text {        /*维修处理*/
+    color: rgb(39, 184, 190);
+}
+
+.awaitDispatch {        /*维修派工*/
+    border-color: rgb(36, 143, 252);
+}
+
+.awaitDispatch-text {        /*维修派工*/
+    color: rgb(36, 143, 252);
+}
+
+.meter {        /*计量提醒*/
+    border-color: rgb(39, 184, 190);;
+}
+
+.meter-text {        /*计量提醒*/
+    color: rgb(39, 184, 190);
+}
+
+.notTurned {        /*转科审批*/
+    border-color: rgb(149, 99, 234);
+}
+
+.notTurned-text {        /*转科审批*/
+    color: rgb(149, 99, 234);
+}
+
+.awaitRepair {       /*等待维修*/
+    border-color: rgb(39, 184, 190);
+}
+
+.awaitRepair-text {       /*等待维修*/
+    color: rgb(39, 184, 190);
+}
+
+
+

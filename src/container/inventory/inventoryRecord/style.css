@@ -1,0 +1,6 @@
+:global(.show){
+    display:block
+}
+:global(.hide){
+    display:none
+}

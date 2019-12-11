@@ -1,0 +1,28 @@
+.ysynet-notfound {
+  width: 100%;
+  min-height: 400px;
+  position: relative;
+  background-image: url('../../assets/404.svg');
+  background-repeat: no-repeat;
+  background-position: 50px 50px;
+  overflow: hidden;
+}
+
+.ysynet-notfound-content {
+  position: absolute;
+  top: 100px;
+  right: 200px;
+}
+.ysynet-notfound-content h1 {
+  color: #434e59;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 72px;
+  margin-bottom: 24px;
+}
+.ysynet-notfound-content .desc {
+  color: rgba(0,0,0,.45);
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 16px;
+}

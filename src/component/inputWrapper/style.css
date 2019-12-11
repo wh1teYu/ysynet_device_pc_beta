@@ -1,0 +1,21 @@
+.inputWrapper {
+  min-height: 100%;
+  position: relative;
+  background-color: #fff;
+  font-family: "anticon" !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.inputWrapper:hover {
+  background: #E6F7FF;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.inputIcon {
+  position: absolute;
+  font-size: 16px;
+  top: calc(50% - 8px);
+  right: 5px;
+}

@@ -1,0 +1,9 @@
+:global(.ellipsis){ 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:global(.ant-table-fixed) {
+    table-layout: fixed;
+}

@@ -1,0 +1,32 @@
+/* 登录界面 */
+.container {
+  background: #f0f2f5;
+  background-image: url('https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg');
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.top{
+  /* width: 120px; */
+  width: 170px;
+  margin: 0 auto;
+  padding-top: 70px;
+ 
+}
+.login-logo {
+  margin-top: 50px;
+  width: 120px;
+  height: 45px;
+  background: url('../../assets/login_logo.png');
+  background-size: 100% 100%;
+  display: block; 
+}
+.middle{
+  margin: 0 auto;
+  width: 400px;
+}

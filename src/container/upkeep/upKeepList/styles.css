@@ -1,0 +1,64 @@
+.width50{
+    display: inline-block;
+    width: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: red;
+}
+
+:global(.col05) {
+    display:inline-block;
+    width:5%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}:global(.col08) {
+    display:inline-block;
+    width:8%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:global(.col12) {
+    display:inline-block;
+    width:12%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:global(.col-1) {
+    display:inline-block;
+    width:10%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:global(.col-2) {
+    display:inline-block;
+    width:20%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:global(.col-3) {
+    display:inline-block;
+    width:30%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:global(.col-4) {
+    display:inline-block;
+    width:40%;
+    height:38px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

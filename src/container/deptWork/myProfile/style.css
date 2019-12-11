@@ -1,0 +1,46 @@
+.table-span {
+  min-height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.table-span:nth-child(2n) {
+  padding: 5px;
+  text-align: left;
+} 
+
+.table-row {
+  border-right: 1px solid rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 200px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+.text-align-center{
+  text-align: center
+}
+.text-align-right{
+  text-align: right
+}
+.ml10{
+  margin-left: 10px;
+}
+
+.tac{
+  text-align: center
+}
+.ant-table-content{
+  height:390px
+}

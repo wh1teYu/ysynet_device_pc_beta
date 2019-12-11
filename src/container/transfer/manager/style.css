@@ -1,0 +1,4 @@
+
+:global(.ant-pagination-options .ant-select){
+  width:inherit !important;
+}

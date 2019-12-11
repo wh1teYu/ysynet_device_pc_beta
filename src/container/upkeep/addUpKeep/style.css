@@ -1,0 +1,4 @@
+
+:global(.hide-delete .anticon-delete) {
+    display: none;
+}

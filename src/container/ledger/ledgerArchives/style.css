@@ -1,0 +1,110 @@
+.table-span {
+  min-height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.table-span:nth-child(2n) {
+  padding: 5px;
+  text-align: left;
+} 
+
+.table-row {
+  border-right: 1px solid rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.45);
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 200px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+.text-align-center{
+  text-align: center
+}
+.text-align-right{
+  text-align: right
+}
+.ml10{
+  margin-left: 10px;
+}
+
+.tac{
+  text-align: center
+}
+
+.assetBgf{
+  position: relative;
+  background: #fff;
+  padding:24px;
+}
+.posBox{
+  position: absolute;
+  right:24px;
+  top:64px;
+}
+.posBox>div{
+  float: left;
+  text-align: right;
+  min-width: 80px;
+  padding-left:15px;
+}
+.posBox small{
+  color:#bfbfbf;
+}
+.defindTab{
+  padding:0 20px;
+}
+.defindTab [role="tablist"]{
+  margin: 0 -21px 16px -20px !important;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.certInfoPosBox{
+  top:0;
+  right: -60px;
+}
+.certInfoPosBox p{
+  margin-bottom:0px;
+}
+.certInfoContent .rowGap{
+  margin-bottom: 12px;
+}
+/*资产档案 档案详情*/
+:global(.baseInfo-assetInfo .ant-form-item){
+  margin-bottom:0
+}
+:global(.baseInfo-assetInfo .ant-input){
+  width:70%
+}
+:global(.baseInfo-assetInfo .ant-input-group-addon){
+  left:-23.5%;
+  z-index:2;
+  padding: 1px 12px;
+}
+
+:global(.baseInfo-assetInfo .ant-form>.ant-row>.ant-col-8){
+  height:40px;
+}
+:global(.baseInfo-assetInfo .ant-input.ant-calendar-picker-input ){
+  width:100%
+}
+:global(.baseInfo-assetInfo .ant-select){
+  width:70%
+}
+:global(.baseInfo-assetInfo .ant-form-item-label.ant-col-sm-5){
+  text-align:left;
+}
+:global(.baseInfo-assetInfo .ant-form-item-label.ant-col-sm-6),:global(.baseInfo-assetInfo .ant-form-item-label.ant-col-sm-7){
+  text-align:left;
+}
