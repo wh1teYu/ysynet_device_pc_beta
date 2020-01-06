@@ -4,8 +4,8 @@
 * @Last Modified time: 2018-06-12 16:06:41 
  */
 
-import React , { Component } from 'react'//message,
-import { Layout , Form, Row, Col,Icon, Input, Button , Table , Radio , Modal ,message, Select ,TreeSelect} from 'antd';
+import React, { Component } from 'react'//message,
+import { Layout, Form, Row, Col, Icon, Input, Button, Table, Radio, Modal, message, Select, TreeSelect } from 'antd';
 // import TableGrid from '../../../component/tableGrid';
 import { CommonData } from '../../../utils/tools';
 import storage from '../../../api/storage';
@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 const { Content } = Layout;
 const FormItem = Form.Item;
 const confirm = Modal.confirm;
-const {Option} = Select;
+const { Option } = Select;
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -27,14 +27,14 @@ const formItemLayout = {
   },
 };
 const styles = {
-  textRight:{
-    textAlign:'right'
+  textRight: {
+    textAlign: 'right'
   },
-  fillRight:{
-    marginRight:8
+  fillRight: {
+    marginRight: 8
   },
-  top:{
-    marginTop:3
+  top: {
+    marginTop: 3
   }
 }
 
@@ -43,43 +43,43 @@ class SearchForm extends Component {
   //搜索表单
   searchFrom = () => {
     let values = this.props.form.getFieldsValue();
-    if(values.sendNo && values.sendNo!=='' ){
+    if (values.sendNo && values.sendNo !== '') {
       this.props.query(values)
-    }else{
+    } else {
       message.warn('请填写送货单号！')
     }
   }
 
-  render(){
+  render() {
     const { getFieldDecorator } = this.props.form;
- 
+
     return (
       <Form>
         <Row>
           <Col span={8}>
             <FormItem label={`送货单号`} {...formItemLayout} style={styles.fillRight}>
               {getFieldDecorator(`sendNo`)(
-                <Input placeholder="请输入送货单号或扫描二维码"/>
+                <Input placeholder="请输入送货单号或扫描二维码" />
               )}
             </FormItem>
-           </Col>
-           <Col span={3}>
-            <Button type='primary'  style={styles.top}  onClick={()=>this.searchFrom()}>搜索</Button>
-           </Col>
-           <Col span={6}>
+          </Col>
+          <Col span={3}>
+            <Button type='primary' style={styles.top} onClick={() => this.searchFrom()}>搜索</Button>
+          </Col>
+          <Col span={6}>
             <FormItem label={`越库`} {...formItemLayout} style={styles.fillRight}>
-              {getFieldDecorator(`isOut`,{initialValue:''})(
+              {getFieldDecorator(`isOut`, { initialValue: '' })(
                 <Radio.Group>
                   <Radio value="yes">是</Radio>
                   <Radio value="">否</Radio>
                 </Radio.Group>
               )}
             </FormItem>
-           </Col>
-           <Col span={7} style={styles.textRight}>
-              <Button type='primary'  style={styles.fillRight}  onClick={()=>this.props.submit(this.props.form.getFieldsValue())}>确认入库</Button>
-              <Button type='primary' ><Link to={{pathname:`/storage/wareHouseMgt`}}>取消</Link></Button>
-           </Col>
+          </Col>
+          <Col span={7} style={styles.textRight}>
+            <Button type='primary' style={styles.fillRight} onClick={() => this.props.submit(this.props.form.getFieldsValue())}>确认入库</Button>
+            <Button type='primary' ><Link to={{ pathname: `/storage/wareHouseMgt` }}>取消</Link></Button>
+          </Col>
         </Row>
       </Form>
     )
@@ -90,46 +90,46 @@ const SearchFormWapper = Form.create()(SearchForm);
 class AddWareHouse extends Component {
 
   state = {
-    query:"",
-    baseInfo:{},
+    query: "",
+    baseInfo: {},
     dataSource: [],
-    treeData:[]
+    treeData: []
   }
 
-  componentDidMount (){
+  componentDidMount() {
     this.searchStaticZc()
   }
 
-  format = (arr) =>{
-    return  arr.map((item)=>{
-      item.title=item.tfComment;
-      item.value=item.tfComment;
-      item.key=item.staticId;
-      if(item.children.length>0){
+  format = (arr) => {
+    return arr.map((item) => {
+      item.title = item.tfComment;
+      item.value = item.tfComment;
+      item.key = item.staticId;
+      if (item.children.length > 0) {
         item.children = this.format(item.children);
       }
       return item
     })
   }
   //查询财务分类列表
-  searchStaticZc = () =>{
-    request(storage.searchStaticZc,{
-      body:queryString.stringify({tfClo:'financial'}),
+  searchStaticZc = () => {
+    request(storage.searchStaticZc, {
+      body: queryString.stringify({ tfClo: 'financial' }),
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: data => {
-        if(data.status){
-            let formatArr = this.format(data.result)
-            console.log(formatArr)
-            this.setState({
-              treeData:formatArr
-            })
-        }else{
+        if (data.status) {
+          let formatArr = this.format(data.result)
+          console.log(formatArr)
+          this.setState({
+            treeData: formatArr
+          })
+        } else {
           message.error(data.msg)
         }
       },
-      error: err => {console.log(err)}
+      error: err => { console.log(err) }
     })
   }
 
@@ -151,65 +151,65 @@ class AddWareHouse extends Component {
     const { dataSource } = this.state;
     let toggle = false;
 
-    for(let i = 0; i<dataSource.length;i++){
-      if(!dataSource[i].styleName){//任意一行未选择财务分类- 则弹窗
+    for (let i = 0; i < dataSource.length; i++) {
+      if (!dataSource[i].styleName) {//任意一行未选择财务分类- 则弹窗
         confirm({
-          title:'当前存在产品无财务分类',
-          content:'选继续操作将影响财务报表的准确性，是否继续？',
-          onOk:()=>{
+          title: '当前存在产品无财务分类',
+          content: '选继续操作将影响财务报表的准确性，是否继续？',
+          onOk: () => {
             this.submitAjax();
           }
         })
         return
-      }else{
-        toggle=true;
+      } else {
+        toggle = true;
       }
     }
-    if(toggle){
+    if (toggle) {
       this.submitAjax();
     }
   }
 
-  submitAjax = ()=>{
+  submitAjax = () => {
     //发出请求
     let styleId = [];
-    let styleName =[]
-    this.state.dataSource.map((item)=>{
+    let styleName = []
+    this.state.dataSource.map((item) => {
       styleId.push(item.styleId)
       styleName.push(item.styleName)
       return item
     })
-    let isOut =  this.refs.searchForm.getFieldsValue().isOut;
+    let isOut = this.refs.searchForm.getFieldsValue().isOut;
     let json = {}
-    if(isOut!==''){
-       json = {isOut,sendId:this.state.baseInfo.sendId,styleId,styleName}
-    }else{
-       json = {sendId:this.state.baseInfo.sendId,styleId,styleName}
+    if (isOut !== '') {
+      json = { isOut, sendId: this.state.baseInfo.sendId, styleId, styleName }
+    } else {
+      json = { sendId: this.state.baseInfo.sendId, styleId, styleName }
     }
 
-    request(storage.insertImport,{
-      body:queryString.stringify(json),
+    request(storage.insertImport, {
+      body: queryString.stringify(json),
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: data => {
-        if(data.status){
-            message.success('入库成功')
-            this.refs.searchForm.resetFields();
-            this.setState({
-              baseInfo:{},
-              dataSource:[]
-            })
-            this._configPrint(json,data.result)
-        }else{
+        if (data.status) {
+          message.success('入库成功')
+          this.refs.searchForm.resetFields();
+          this.setState({
+            baseInfo: {},
+            dataSource: []
+          })
+          this._configPrint(json, data.result)
+        } else {
           message.error(data.msg)
         }
       },
-      error: err => {console.log(err)}
+      error: err => { console.log(err) }
     })
   }
   //打印配置
-  _configPrint = (json,data) => {
+  _configPrint = (json, data) => {
     console.log(data)
     /* 
     {
@@ -223,77 +223,78 @@ class AddWareHouse extends Component {
      }
    }
     */
-    if(data&&data.in&&data.in.storagePrintConfig==="01"){//调用自动打印
+    if (data && data.in && data.in.storagePrintConfig === "01") {//调用自动打印
       window.open(`${storage.inputImport}?InId=${data.in.InId}`)
     }
-    if(data&&data.out&&data.out.storagePrintConfig==="01"){//调用自动打印
+    if (data && data.out && data.out.storagePrintConfig === "01") {//调用自动打印
       window.open(`${storage.outputImport}?outId=${data.out.outId}`)
     }
   }
 
-  query = (values) => {
-    console.log(values)
+  query = async (values) => {
+    let sendId = '';
     //查询当前baseInfo
-    request(storage.selectZCDeliveryList,{
-      body:queryString.stringify(values),
+    await request(storage.selectZCDeliveryList, {
+      body: queryString.stringify(values),
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: data => {
-        if(data.status){
-          this.setState({baseInfo:data.result.rows[0]})
-        }else{
+        if (data.status) {
+          sendId = data.result.rows[0].sendId;
+          this.setState({ baseInfo: data.result.rows[0] });
+        } else {
           message.error(data.msg)
         }
       },
-      error: err => {console.log(err)}
+      error: err => { console.log(err) }
     })
-
-    request(storage.selectZCDeliveryDetail,{
-      body:queryString.stringify(values),
+    
+    request(storage.selectZCDeliveryDetail, {
+      body: queryString.stringify({ ...values, sendId }),
       headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: data => {
-        if(data.status){
-          this.setState({dataSource:data.result}) 
-        }else{
+        if (data.status) {
+          this.setState({ dataSource: data.result })
+        } else {
           message.error(data.msg)
         }
       },
-      error: err => {console.log(err)}
+      error: err => { console.log(err) }
     })
   }
 
   total = () => {
-    let total = 0 ;
-    this.state.dataSource.map(item=>{
-      total+=item.amount*item.purchasePrice;
+    let total = 0;
+    this.state.dataSource.map(item => {
+      total += item.amount * item.purchasePrice;
       return item
     })
     return total.toFixed(2)
   }
 
-  onChange = (value,label, extra,index) => {
-    console.log(value,label, extra);
-    const { triggerNode: {props: {children} } } = extra;
+  onChange = (value, label, extra, index) => {
+    console.log(value, label, extra);
+    const { triggerNode: { props: { children } } } = extra;
     if (!children || !children.length) {
       const { dataSource } = this.state;
       let ret = [].concat(dataSource);
-      ret[index].styleName = value ;
+      ret[index].styleName = value;
       ret[index].styleId = extra.triggerNode.props.eventKey;
       this.setState({
-        dataSource:ret
+        dataSource: ret
       })
-    }else{
+    } else {
       message.warn('请选择末级分类')
     }
   }
-  render () {
-    const { dataSource , baseInfo , treeData } = this.state;
+  render() {
+    const { dataSource, baseInfo, treeData } = this.state;
     const columns = [
       {
-        title:"产品名称",
+        title: "产品名称",
         dataIndex: 'materialName',
         render: (text, record) => (
           <EditableCell
@@ -303,15 +304,15 @@ class AddWareHouse extends Component {
         ),
       },
       {
-        title:"品牌",
+        title: "品牌",
         dataIndex: 'tfBrand',
       },
       {
-        title:"证件号",
+        title: "证件号",
         dataIndex: 'registerNo',
       },
       {
-        title:"规格",
+        title: "规格",
         dataIndex: 'spec',
         render: (text, record) => (
           <EditableCell
@@ -321,7 +322,7 @@ class AddWareHouse extends Component {
         ),
       },
       {
-        title:"型号 ",
+        title: "型号 ",
         dataIndex: 'fmodel',
         render: (text, record) => (
           <EditableCell
@@ -331,7 +332,7 @@ class AddWareHouse extends Component {
         ),
       },
       {
-        title:"单位 ",
+        title: "单位 ",
         dataIndex: 'purchaseUnit',
         render: (text, record) => (
           <EditableCell
@@ -342,21 +343,21 @@ class AddWareHouse extends Component {
         ),
       },
       {
-        title:"采购单价",
+        title: "采购单价",
         dataIndex: 'purchasePrice',
       },
       {
-        title:"送货数量",
+        title: "送货数量",
         dataIndex: 'amount',
       },
       {
-        title:"生产商",
+        title: "生产商",
         dataIndex: 'produceName',
       },
       {
-        title:"财务分类",
+        title: "财务分类",
         dataIndex: 'styleName',
-        render:(text,record,index)=>(
+        render: (text, record, index) => (
           <TreeSelect
             showSearch
             style={{ width: 300 }}
@@ -364,18 +365,18 @@ class AddWareHouse extends Component {
             dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
             treeData={treeData}
             placeholder="请选择财务分类"
-            onChange={(value,label, extra)=>this.onChange(value,label, extra,index)}
+            onChange={(value, label, extra) => this.onChange(value, label, extra, index)}
           />
         )
       }
     ]
 
     return (
-      <Content className='ysynet-content ysynet-common-bgColor' style={{padding:20}}>
-        <SearchFormWapper 
-        ref='searchForm'
-        query={values=>this.query(values)}
-        submit={(values)=>this.submit(values)}
+      <Content className='ysynet-content ysynet-common-bgColor' style={{ padding: 20 }}>
+        <SearchFormWapper
+          ref='searchForm'
+          query={values => this.query(values)}
+          submit={(values) => this.submit(values)}
         />
 
         <Row>
@@ -386,7 +387,7 @@ class AddWareHouse extends Component {
               </div>
               <div className="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16">
                 <div className="ant-form-item-control">
-                  {baseInfo?baseInfo.sendNo:''}
+                  {baseInfo ? baseInfo.sendNo : ''}
                 </div>
               </div>
             </div>
@@ -398,7 +399,7 @@ class AddWareHouse extends Component {
               </div>
               <div className="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16">
                 <div className="ant-form-item-control">
-                {baseInfo?baseInfo.fOrgName:''}
+                  {baseInfo ? baseInfo.fOrgName : ''}
                 </div>
               </div>
             </div>
@@ -410,7 +411,7 @@ class AddWareHouse extends Component {
               </div>
               <div className="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16">
                 <div className="ant-form-item-control">
-                {baseInfo?baseInfo.tDeptName:''}
+                  {baseInfo ? baseInfo.tDeptName : ''}
                 </div>
               </div>
             </div>
@@ -422,26 +423,26 @@ class AddWareHouse extends Component {
               </div>
               <div className="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16">
                 <div className="ant-form-item-control">
-                 {baseInfo?baseInfo.tfAddress:''}
+                  {baseInfo ? baseInfo.tfAddress : ''}
                 </div>
               </div>
             </div>
           </div>
         </Row>
 
-        <Table 
-          bordered 
+        <Table
+          bordered
           rowKey={'sendId'}
-          dataSource={dataSource} 
-          columns={columns} 
+          dataSource={dataSource}
+          columns={columns}
           pagination={false}
-          footer={()=>{
+          footer={() => {
             return (
               <div>
                 总金额：{this.total()}
               </div>
             )
-          }}/>
+          }} />
 
       </Content>
     )
@@ -454,11 +455,11 @@ class EditableCell extends Component {
   state = {
     value: this.props.value,
     editable: false,
-    unitList:[]
+    unitList: []
   }
-  componentWillMount (){
+  componentWillMount() {
     CommonData('UNIT', (data) => {
-      this.setState({unitList:data.rows||data})
+      this.setState({ unitList: data.rows || data })
     })
   }
   handleChange = (e) => {
@@ -475,23 +476,23 @@ class EditableCell extends Component {
     this.setState({ editable: true });
   }
   render() {
-    const { value, editable , unitList } = this.state;
+    const { value, editable, unitList } = this.state;
     const { useDic } = this.props;//TF_CLO_CODE
-    const unitOption =  unitList.map(item=>(<Option key={item.TF_CLO_NAME} value={item.TF_CLO_NAME}>{item.TF_CLO_NAME}</Option>))
+    const unitOption = unitList.map(item => (<Option key={item.TF_CLO_NAME} value={item.TF_CLO_NAME}>{item.TF_CLO_NAME}</Option>))
     return (
       <div className="editable-cell">
         {
-          editable ? 
+          editable ?
             useDic ? (
               <span>
-                <Select 
+                <Select
                   showSearch
                   optionFilterProp="children"
                   filterOption={(input, option) => option.props.children.indexOf(input) >= 0}
-                  value={value} 
-                  style={{width:80}} 
+                  value={value}
+                  style={{ width: 80 }}
                   onChange={this.handleChange}
-                  >
+                >
                   {unitOption}
                 </Select>
                 <Icon
@@ -501,29 +502,29 @@ class EditableCell extends Component {
                 />
               </span>
             ) : (
-              <Input
-                value={value}
-                onChange={(e)=>this.handleChange(e.target.value)}
-                onPressEnter={this.check}
-                suffix={
-                  <Icon
-                    type="check"
-                    className="editable-cell-icon-check"
-                    onClick={this.check}
-                  />
-                }
-              />
-            ) 
-          : (
-            <div style={{ paddingRight: 24 }}>
-              {value || ' '}
-              <Icon
-                type="edit"
-                className="editable-cell-icon"
-                onClick={this.edit}
-              />
-            </div>
-          )
+                <Input
+                  value={value}
+                  onChange={(e) => this.handleChange(e.target.value)}
+                  onPressEnter={this.check}
+                  suffix={
+                    <Icon
+                      type="check"
+                      className="editable-cell-icon-check"
+                      onClick={this.check}
+                    />
+                  }
+                />
+              )
+            : (
+              <div style={{ paddingRight: 24 }}>
+                {value || ' '}
+                <Icon
+                  type="edit"
+                  className="editable-cell-icon"
+                  onClick={this.edit}
+                />
+              </div>
+            )
         }
       </div>
     );
