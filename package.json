@@ -24,7 +24,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-script": "^2.0.5",
-    "react-scripts": "1.0.17",
+    "react-scripts": "5.0.1",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",
